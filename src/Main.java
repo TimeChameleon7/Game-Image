@@ -27,6 +27,10 @@ public class Main {
         frame.addKeyListener(new Controls());
 
         frame.setVisible(true);
+        
+        Thread refresher = new Refresh();
+        refresher.setDaemon(true);
+        refresher.start();
     }
     static void reload(){
         grid.draw();
