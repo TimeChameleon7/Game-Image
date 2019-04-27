@@ -17,15 +17,13 @@ public class Main {
         };
         Object wall = new Object(new Point(100,100),pixels1,10);
         Object[] objects = {player,wall};
-        grid = new Grid(frame.getWidth(),frame.getHeight(),objects,Color.WHITE);
+        grid = new Grid(400,400,objects,Color.WHITE);
         label.setIcon(new ImageIcon(grid.getGrid()));
         frame.addKeyListener(new Controls());
 
         frame.setVisible(true);
         
-        Thread refresher = new Refresh();
-        refresher.setDaemon(true);
-        refresher.start();
+        Thread tick = new Tick();
     }
     static void reload(){
         grid.draw();
