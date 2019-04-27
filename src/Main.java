@@ -11,11 +11,7 @@ public class Main {
         frame.setSize(500,500);
         label = new JLabel();
         frame.getContentPane().add(label);
-
-        Pixel[] pixels = {
-                new Pixel(-1,1)
-        };
-        Object player = new Object(new Point(200,200),pixels,10);
+        Object player = new Object(new Point(200,200),Pixel.rectangle(new Point(-1,-1),new Point(1,1),Color.BLACK),10);
         Pixel[] pixels1 = {
                 new Pixel(-1,0,Color.RED), new Pixel(0,0,Color.RED), new Pixel(1,0,Color.RED)
         };

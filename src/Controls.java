@@ -37,8 +37,6 @@ public class Controls implements KeyListener {
             for (Point playerPoint : Main.grid.getObjects()[0].getAbsolutePoints()) {
                 for (Point point : Main.grid.getObjectsPoints()) {
                     if (playerPoint.equals(point.getLocation())) {
-                        System.out.printf("Unable to translate due to object collision at (%d,%d).%n",
-                                (int)playerPoint.getX(),(int)playerPoint.getY());
                         Main.grid.getObjects()[0].setCenter(prevPoint);
                         break collisionCheck;
                     }
@@ -48,8 +46,6 @@ public class Controls implements KeyListener {
                             playerPoint.equals(new Point(0, y)) ||
                                     playerPoint.equals(new Point(Main.grid.getWidth(), y))
                     ) {
-                        System.out.printf("Unable to translate due to object wall at (%d,%d).%n",
-                                (int)playerPoint.getX(),(int)playerPoint.getY());
                         Main.grid.getObjects()[0].setCenter(prevPoint);
                         break collisionCheck;
                     }
@@ -59,8 +55,6 @@ public class Controls implements KeyListener {
                             playerPoint.equals(new Point(x, 0)) ||
                                     playerPoint.equals(new Point(x, Main.grid.getWidth()))
                     ) {
-                        System.out.printf("Unable to translate due to object wall at (%d,%d).%n",
-                                (int)playerPoint.getX(),(int)playerPoint.getY());
                         Main.grid.getObjects()[0].setCenter(prevPoint);
                         break collisionCheck;
                     }

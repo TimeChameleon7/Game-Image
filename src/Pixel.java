@@ -38,10 +38,10 @@ class Pixel {
         return color.getRGB();
     }
 
-    Pixel[] rectangle(Point point1, Point point2, Color color){
+    static Pixel[] rectangle(Point point1, Point point2, Color color){
         ArrayList<Pixel> pixels = new ArrayList<>();
         for(int y = point1.y;y<=point2.y;y++){
-            for(int x = point1.x;x<=point1.x;x++){
+            for(int x = point1.x;x<=point2.x;x++){
                 pixels.add(new Pixel(x,y,color));
             }
         }

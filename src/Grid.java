@@ -13,6 +13,7 @@ class Grid {
         this.height = height;
         this.objects = objects;
         this.background = background;
+        draw();
     }
     int getWidth(){
         return width;
