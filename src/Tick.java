@@ -5,7 +5,6 @@ import java.util.logging.Logger;
 public class Tick extends Thread{
     Tick(){
         setDaemon(true);
-        start();
     }
     @Override
     public void run(){

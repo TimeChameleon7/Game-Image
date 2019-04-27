@@ -22,8 +22,9 @@ public class Main {
         frame.addKeyListener(new Controls());
 
         frame.setVisible(true);
-        
+
         Thread tick = new Tick();
+        tick.start();
     }
     static void reload(){
         grid.draw();
