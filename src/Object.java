@@ -14,7 +14,7 @@ class Object {
     Object(Point center, Pixel[] pixels){
         this.center = center;
         this.pixels = pixels;
-        this.speed = 0;
+        this.speed = 1;
     }
 
     void move(int x, int y){

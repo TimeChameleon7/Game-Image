@@ -67,7 +67,6 @@ public class Controls implements KeyListener {
                 }
             }
         }
-        Main.frame.setTitle(Main.grid.getObjects()[0].getCenter().toString());
     }
 
     @Override
