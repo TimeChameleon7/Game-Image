@@ -5,6 +5,7 @@ class Object {
     private Point center;
     private Pixel[] pixels;
     private int speed;
+    private double accelerationY, accelerationX;
 
     Object(Point center, Pixel[] pixels, int speed){
         this.center = center;
@@ -52,5 +53,17 @@ class Object {
     }
     int getSpeed(){
         return this.speed;
+    }
+    void setAccelerationY(double accelerationY){
+        this.accelerationY = accelerationY;
+    }
+    double getAccelerationY(){
+        return this.accelerationY;
+    }
+    void setAccelerationX(double accelerationX){
+        this.accelerationX = accelerationX;
+    }
+    double getAccelerationX(){
+        return this.accelerationX;
     }
 }
