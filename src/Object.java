@@ -20,8 +20,9 @@ class Object {
     void move(int x, int y){
         center.move(x,y);
     }
+    //todo add WallCollsionException and ObjectCollisionException
     void translate(int dx, int dy){
-        center.move(center.x+dx,center.y+dy);
+        center.translate(dx,dy);
     }
     void setCenter(Point center){
         this.center = center;
