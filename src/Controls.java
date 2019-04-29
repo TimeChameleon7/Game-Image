@@ -14,6 +14,12 @@ public class Controls implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        /*todo move to Object under method translate, create a copy of objects
+        * then attempt to move as desired, throwing MovedBeyondGridException
+        * if object collides with wall, or ObjectCollisionException if object
+        * collides with another collision. These Exceptions are intended to be caught
+        * and dealt with accordingly.
+        */
         collisionCheck:
         for(int distance = Main.grid.getObjects()[0].getSpeed();distance>0;distance--) {
             Point prevPoint = Main.grid.getObjects()[0].getCenter();
