@@ -5,12 +5,14 @@ class Object{
     private Point center;
     private Pixel[] pixels;
     private int speed;
-    private double accelerationX, accelerationY;
+    private double velocityX, velocityY, accelerationX, accelerationY;
 
     Object(Point center, Pixel[] pixels, int speed){
         this.center = center;
         this.pixels = pixels;
         this.speed = speed;
+        this.velocityX = 0;
+        this.velocityY = 0;
         this.accelerationX = 0;
         this.accelerationY = 0;
     }
@@ -18,6 +20,8 @@ class Object{
         this.center = center;
         this.pixels = pixels;
         this.speed = 1;
+        this.velocityX = 0;
+        this.velocityY = 0;
         this.accelerationX = 0;
         this.accelerationY = 0;
     }
@@ -25,6 +29,8 @@ class Object{
         this.center = center;
         this.pixels = pixels;
         this.speed = speed;
+        this.velocityX = 0;
+        this.velocityY = 0;
         this.accelerationX = accelerationX;
         this.accelerationY = accelerationY;
     }
@@ -91,6 +97,18 @@ class Object{
     }
     int getSpeed(){
         return this.speed;
+    }
+    public double getVelocityX() {
+        return velocityX;
+    }
+    public void setVelocityX(double velocityX) {
+        this.velocityX = velocityX;
+    }
+    public double getVelocityY() {
+        return velocityY;
+    }
+    public void setVelocityY(double velocityY) {
+        this.velocityY = velocityY;
     }
     void setAccelerationY(double accelerationY){
         this.accelerationY = accelerationY;
