@@ -27,6 +27,18 @@ class Grid {
     Object[] getObjects(){
         return objects;
     }
+    Object[] getObjects(Object except){
+        ArrayList<Object> objects = new ArrayList<>(this.objects.length);
+        for (Object object : this.objects) {
+            if (!object.equals(except)) {
+                objects.add(object);
+            }
+        }
+        objects.trimToSize();
+        Object[] ret = new Object[objects.size()];
+        ret = objects.toArray(ret);
+        return ret;
+    }
     void setBackground(Color background){
         this.background = background;
     }
@@ -80,5 +92,9 @@ class Grid {
         Point[] ret = new Point[points.size()];
         ret = points.toArray(ret);
         return ret;
+    }
+    @Override
+    protected Grid clone() throws CloneNotSupportedException {
+        return (Grid) super.clone();
     }
 }

@@ -1,29 +1,66 @@
 import java.awt.*;
 import java.util.ArrayList;
 
-class Object {
+class Object{
     private Point center;
     private Pixel[] pixels;
     private int speed;
-    private double accelerationY, accelerationX;
+    private double accelerationX, accelerationY;
 
     Object(Point center, Pixel[] pixels, int speed){
         this.center = center;
         this.pixels = pixels;
         this.speed = speed;
+        this.accelerationX = 0;
+        this.accelerationY = 0;
     }
     Object(Point center, Pixel[] pixels){
         this.center = center;
         this.pixels = pixels;
         this.speed = 1;
+        this.accelerationX = 0;
+        this.accelerationY = 0;
+    }
+    Object(Point center, Pixel[] pixels, int speed, double accelerationX, double accelerationY){
+        this.center = center;
+        this.pixels = pixels;
+        this.speed = speed;
+        this.accelerationX = accelerationX;
+        this.accelerationY = accelerationY;
     }
 
     void move(int x, int y){
         center.move(x,y);
     }
-    //todo add WallCollsionException and ObjectCollisionException
-    void translate(int dx, int dy){
-        center.translate(dx,dy);
+    void translate(int dx, int dy) throws WallCollisionException, ObjectCollisionException{
+        Object object = new Object(new Point(this.center),this.pixels);
+        object.center.translate(dx,dy);
+        for(Point pixel : object.getAbsolutePoints()) {
+            for (Object objectOnGrid : Main.grid.getObjects(this)) {
+                for (Point pixelOnGrid : objectOnGrid.getAbsolutePoints()) {
+                    if(pixel.equals(pixelOnGrid)){
+                        throw new ObjectCollisionException(objectOnGrid);
+                    }
+                }
+            }
+            for(int y = 1; y < Main.grid.getHeight(); y++){
+                if(
+                        pixel.equals(new Point(0,y))||
+                                pixel.equals(new Point(Main.grid.getWidth(),y))
+                ){
+                    throw new WallCollisionException();
+                }
+            }
+            for(int x = 1; x < Main.grid.getWidth(); x++){
+                if(
+                        pixel.equals(new Point(x,0))||
+                                pixel.equals(new Point(x,Main.grid.getWidth()))
+                ){
+                    throw new WallCollisionException();
+                }
+            }
+        }
+        this.center.translate(dx,dy);
     }
     void setCenter(Point center){
         this.center = center;

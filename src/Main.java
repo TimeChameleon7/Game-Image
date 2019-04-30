@@ -12,10 +12,7 @@ public class Main {
         label = new JLabel();
         frame.getContentPane().add(label);
         Object player = new Object(new Point(200,200),Pixel.rectangle(new Point(-1,-1),new Point(1,1),Color.BLACK),10);
-        Pixel[] pixels1 = {
-                new Pixel(-1,0,Color.RED), new Pixel(0,0,Color.RED), new Pixel(1,0,Color.RED)
-        };
-        Object wall = new Object(new Point(100,100),pixels1,10);
+        Object wall = new Object(new Point(100,100),Pixel.rectangle(new Point(-10,0),new Point(10,0),Color.RED));
         Object[] objects = {player,wall};
         grid = new Grid(400,400,objects,Color.WHITE);
         label.setIcon(new ImageIcon(grid.getGrid()));
