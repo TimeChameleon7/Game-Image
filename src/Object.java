@@ -5,7 +5,7 @@ class Object{
     private Point center;
     private Pixel[] pixels;
     private int speed;
-    private double velocityX, velocityY, accelerationX, accelerationY;
+    private double velocityX, velocityY, accelerationX, accelerationY, distanceX, distanceY;
 
     Object(Point center, Pixel[] pixels, int speed){
         this.center = center;
@@ -15,6 +15,8 @@ class Object{
         this.velocityY = 0;
         this.accelerationX = 0;
         this.accelerationY = 0;
+        this.distanceX = 0;
+        this.distanceY = 0;
     }
     Object(Point center, Pixel[] pixels){
         this.center = center;
@@ -24,6 +26,8 @@ class Object{
         this.velocityY = 0;
         this.accelerationX = 0;
         this.accelerationY = 0;
+        this.distanceX = 0;
+        this.distanceY = 0;
     }
     Object(Point center, Pixel[] pixels, int speed, double accelerationX, double accelerationY){
         this.center = center;
@@ -33,6 +37,8 @@ class Object{
         this.velocityY = 0;
         this.accelerationX = accelerationX;
         this.accelerationY = accelerationY;
+        this.distanceX = 0;
+        this.distanceY = 0;
     }
 
     void move(int x, int y){
@@ -80,7 +86,7 @@ class Object{
     Pixel[] getPixels(){
         return pixels;
     }
-    Point[] getAbsolutePoints(){
+    private Point[] getAbsolutePoints(){
         ArrayList<Point> points = new ArrayList<>();
         for(Pixel pixel : pixels){
             points.add(new Point(
@@ -98,16 +104,16 @@ class Object{
     int getSpeed(){
         return this.speed;
     }
-    public double getVelocityX() {
+    double getVelocityX() {
         return velocityX;
     }
-    public void setVelocityX(double velocityX) {
+    void setVelocityX(double velocityX) {
         this.velocityX = velocityX;
     }
-    public double getVelocityY() {
+    double getVelocityY() {
         return velocityY;
     }
-    public void setVelocityY(double velocityY) {
+    void setVelocityY(double velocityY) {
         this.velocityY = velocityY;
     }
     void setAccelerationY(double accelerationY){
@@ -121,5 +127,17 @@ class Object{
     }
     double getAccelerationX(){
         return this.accelerationX;
+    }
+    double getDistanceX() {
+        return distanceX;
+    }
+    void setDistanceX(double distanceX) {
+        this.distanceX = distanceX;
+    }
+    double getDistanceY() {
+        return distanceY;
+    }
+    void setDistanceY(double distanceY) {
+        this.distanceY = distanceY;
     }
 }
