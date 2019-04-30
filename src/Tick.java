@@ -45,11 +45,9 @@ public class Tick extends Thread{
                     }
                 }
             }
-            try {
-                Thread.sleep(20);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Tick.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            try{
+                sleep(20);
+            }catch(InterruptedException ignored){}
         }
     }
 }
