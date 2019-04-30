@@ -35,7 +35,6 @@ public class Controls implements KeyListener {
             }
             }
         } catch (ObjectCollisionException ex) {
-            System.out.println("Object collision at "+ex.getObject());
         } catch (WallCollisionException ignored) {
 
         }
